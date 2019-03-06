@@ -7,3 +7,14 @@ export const FETCH_FAILURE = 'FETCH_FAILURE';
 // our action creator will be a function that returns a function
 // the url to fetch characters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based action creator
+
+export const fetchData = (characters) => {
+    return dispatch => {
+        dispatch({ type: FETCH_DATA });
+
+        axios
+            .get('https://swapi.co/api/people/')
+            .then(res => dispatch({type: FETCH_SUCCESS, payload: res.data.results }))
+            .catch(err => dispatch({ type: FETCH_FAILURE }));
+    }
+}
