@@ -13,8 +13,7 @@ class CharacterListView extends React.Component {
     if (this.props.fetching) {
       return (<h3>Loading...</h3>);
     }
-
-    console.log(this.props.characters);
+    
     return (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />
